@@ -20,11 +20,12 @@ CC=/local/polly/llvm_build/bin/clang
 endif
 
 
-EXEC=ftl
+EXEC=kIWImap
 
 all: $(EXEC)
+	mv kIWImap ../bin
 
-ftl: ftl.o  utils.o mapping.o distances.o ssw_cpp.o ssw.o
+kIWImap: ftl.o  utils.o mapping.o distances.o ssw_cpp.o ssw.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 ftl.o: main.cpp  utils.h mapping.h

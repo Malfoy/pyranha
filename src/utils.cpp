@@ -27,18 +27,23 @@ char randNuc(){
 }
 
 
-void extractRef(const string& refFile, string& ref){
+void extractRef(const string& refFile, string& ref, uint k){
 	string line;
+	uint c(0);
 	ref.reserve(1000000);
 	ifstream in(refFile);
 	while(not in.eof()){
 		getline(in,line);
 		getline(in,line);
-		ref+=line+':';
-		//~ cout<<ref<<endl;
-		//~ cin.get();
+		if(line.size()>k){
+			ref+=line+':';
+		}else{
+			c++;
+		}
 	}
-	//~ cout<<ref.size()<<endl;
+	if(c!=0){
+		cout<<c<<" references sequences discarded for being smaller than k ... (sorry)"<<endl;
+	}
 }
 
 
@@ -76,9 +81,10 @@ uint64_t nuc2int(char c){
 		case 'C': return 1;
 		case 'G': return 2;
 		case 'T': return 3;
+		case 'N': return 0;
 	}
-	//~ cout<<"bug"<<c<<"!"<<endl;
-	//~ exit(0);
+	cout<<"bug"<<c<<"!"<<endl;
+	exit(0);
 	return 0;
 }
 

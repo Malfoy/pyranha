@@ -62,8 +62,8 @@ int main(int argc, char ** argv){
                 }
         }
         auto startChrono2=chrono::system_clock::now();
-        extractRef(refFile,ref);
         cout<<"Filling index of "<<refFile<<endl;
+        extractRef(refFile,ref,k);
         unordered_map<kmer,vector<position>> kmer2pos;
         // fillIndex(refFile, k, kmer2pos,fraction);
 		fillMPHF(ref,fraction,k,coreNumber,kmerCountFile);
@@ -73,8 +73,9 @@ int main(int argc, char ** argv){
         auto startChrono=chrono::system_clock::now();
         uint nbread(mapReadFile(readFile,k,kmer2pos, ref,maxMiss, notAlignedSequence,coreNumber));
         auto end=chrono::system_clock::now();auto waitedFor=end-startChrono;
-        cout<<"Mapping took : "<<(chrono::duration_cast<chrono::seconds>(waitedFor).count())<<" sec"<<endl;
-        cout<<"Throughout: "<< nbread/(1000*(chrono::duration_cast<chrono::seconds>(waitedFor).count()))<<"k read by second or "
-        << (nbread*3600/(1000000*(chrono::duration_cast<chrono::seconds>(waitedFor).count())))<<"M by hour"<<endl;
+        uint timInSeconds(max((uint)chrono::duration_cast<chrono::seconds>(waitedFor).count(),(uint)1));
+        cout<<"Mapping took : "<<timInSeconds<<" sec"<<endl;
+        cout<<"Throughout: "<< nbread/(1000*timInSeconds)<<"k read by second"<<endl;
+        //~ << (nbread*3600/(1000000*(chrono::duration_cast<chrono::seconds>(waitedFor).count())))<<"M by hour"<<endl;
         return 0;
 }

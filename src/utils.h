@@ -38,7 +38,7 @@ void updateMinimizerRC(minimizer&	min, char nuc, uint64_t k);
 void updateMinimizer(minimizer&	min, char nuc, uint64_t k);
 minimizer seq2intStranded(const string& seq);
 vector<string> getReads(ifstream& readFile,uint n,uint& readNumber);
-void extractRef(const string& refFile, string& ref);
+void extractRef(const string& refFile, string& ref,uint k);
 
 
 #endif
