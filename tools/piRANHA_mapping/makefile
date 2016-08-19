@@ -23,7 +23,7 @@ endif
 EXEC=kIWImap
 
 all: $(EXEC)
-	mv kIWImap ../../bin
+	#mv kIWImap ../../bin
 
 kIWImap: ftl.o  utils.o mapping.o distances.o ssw_cpp.o ssw.o
 	$(CC) -o $@ $^ $(LDFLAGS)
