@@ -1,5 +1,4 @@
 # pyranha
-kIWI
 
 Compile the project: compile the mapping tool
 	cd pyranha

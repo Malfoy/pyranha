@@ -1,2 +1,6 @@
 bin/
 data/
+debug.txt
+mapped.fa
+notMapped.fa
+

@@ -1,0 +1,3 @@
+[submodule "thirdparties/KMC"]
+	path = thirdparties/KMC
+	url = https://github.com/refresh-bio/KMC.git
