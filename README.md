@@ -1,10 +1,11 @@
 # pyranha
+Clone the project
+	git clone --recursive https://github.com/Malfoy/pyranha.git
 
 Compile the project: compile the mapping tool
+
 	cd pyranha
-	cd tools/src/piRANHA_mapping
-	make
-	cd ../..
+	./install.sh
 
 Example commandline
 
