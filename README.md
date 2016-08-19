@@ -1,6 +1,11 @@
 # pyranha
 kIWI
 
+Compile the project: compile the mapping tool
+	cd pyranha
+	cd tools/src/piRANHA_mapping
+	make
+	cd ../..
 
 Example commandline
 
